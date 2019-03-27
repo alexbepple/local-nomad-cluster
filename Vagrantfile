@@ -69,7 +69,6 @@ SCRIPT
 
 Vagrant.configure(2) do |config|
   config.vm.box = "bento/ubuntu-16.04" # 16.04 LTS
-  config.vm.hostname = "nomad"
   config.vm.provision "shell", inline: $script, privileged: false
 
   # Increase memory for Virtualbox
@@ -79,10 +78,12 @@ Vagrant.configure(2) do |config|
 
   config.vm.define 'nomad-1' do |n|
     n.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
+    n.vm.hostname = 'nomad-1'
     n.vm.network "private_network", ip: "172.16.0.2"
   end
 
   config.vm.define 'nomad-2' do |n|
+    n.vm.hostname = 'nomad-2'
     n.vm.network "private_network", ip: "172.16.0.3"
   end
 
