@@ -14,10 +14,14 @@ client {
     # For demo assume we are talking to server1. For production,
     # this should be like "nomad.service.consul:4647" and a system
     # like Consul used for service discovery.
-    servers = ["127.0.0.1:4647"]
+    servers = ["172.16.0.2:4647"]
 }
 
 # Modify our port to avoid a collision with server1
 ports {
     http = 5656
+}
+
+addresses {
+    http = "172.16.0.3"
 }

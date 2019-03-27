@@ -72,11 +72,18 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "nomad"
   config.vm.provision "shell", inline: $script, privileged: false
 
-  # Expose the nomad api and ui to the host
-  config.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
-
   # Increase memory for Virtualbox
   config.vm.provider "virtualbox" do |vb|
         vb.memory = "1024"
   end
+
+  config.vm.define 'nomad-1' do |n|
+    n.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
+    n.vm.network "private_network", ip: "172.16.0.2"
+  end
+
+  config.vm.define 'nomad-2' do |n|
+    n.vm.network "private_network", ip: "172.16.0.3"
+  end
+
 end

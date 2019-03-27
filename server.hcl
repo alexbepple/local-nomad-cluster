@@ -11,3 +11,9 @@ server {
     # Self-elect, should be 3 or 5 for production
     bootstrap_expect = 1
 }
+
+advertise {
+    http = "172.16.0.2"
+    rpc = "172.16.0.2"
+    serf = "172.16.0.2"
+}
