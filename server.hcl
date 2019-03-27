@@ -1,5 +1,5 @@
 log_level = "DEBUG"
-data_dir = "/tmp/server1"
+data_dir = "/tmp/nomad/server"
 
 server {
     enabled = true
