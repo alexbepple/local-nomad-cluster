@@ -13,7 +13,7 @@ server {
 }
 
 advertise {
-    http = "172.16.0.2"
-    rpc = "172.16.0.2"
-    serf = "172.16.0.2"
+    http = "{{ GetInterfaceIP `eth1` }}"
+    rpc = "{{ GetInterfaceIP `eth1` }}"
+    serf = "{{ GetInterfaceIP `eth1` }}"
 }

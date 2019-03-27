@@ -20,5 +20,5 @@ ports {
 }
 
 addresses {
-    http = "172.16.0.3"
+    http = "{{ GetInterfaceIP `eth1` }}"
 }
