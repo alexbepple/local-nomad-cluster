@@ -8,5 +8,5 @@ start-server:
 start-client:
     vagrant ssh nomad-2 --no-tty --command 'nomad agent -config /vagrant/client.hcl'
 
-open-web-ui:
-    open http://localhost:4646
+open-nomad-ui:
+    open http://172.16.0.2:4646

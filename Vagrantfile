@@ -76,12 +76,9 @@ Vagrant.configure(2) do |config|
 
   (1..2).each do |i|
     config.vm.define "nomad-#{i}" do |n|
-      if i == 1 
-        n.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true # Nomad
-      end
-      if i == 2
-        n.vm.network "forwarded_port", guest: 9998, host: 9998, auto_correct: true # Fabio UI
-        n.vm.network "forwarded_port", guest: 9999, host: 9999, auto_correct: true # Fabio LB
+      if i == 1
+        # In order to easily run Nomad commands, it is helpful that it is reachable on localhost.
+        n.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
       end
       n.vm.hostname = "nomad-#{i}"
       n.vm.network "private_network", ip: "172.16.0.#{i+1}"
