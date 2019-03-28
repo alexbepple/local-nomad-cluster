@@ -81,7 +81,7 @@ Vagrant.configure(2) do |config|
         n.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
       end
       n.vm.hostname = "nomad-#{i}"
-      n.vm.network "private_network", ip: "172.16.0.#{i+1}"
+      n.vm.network "private_network", ip: "172.16.0.#{i+100}"
     end
   end
 end

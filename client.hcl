@@ -2,7 +2,7 @@ data_dir = "/tmp/nomad/client"
 
 client {
     enabled = true
-    servers = ["172.16.0.2"]
+    servers = ["172.16.0.101"]
 }
 
 ports {
