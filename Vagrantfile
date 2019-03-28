@@ -56,7 +56,7 @@ Vagrant.configure(2) do |config|
         vb.memory = "1024"
   end
 
-  (1..2).each do |i|
+  (1..3).each do |i|
     config.vm.define "nomad-#{i}" do |n|
       if i == 1
         # In order to easily run Nomad commands, it is helpful that it is reachable on localhost.

@@ -3,7 +3,7 @@ job "webserver" {
   type = "service"
 
   group "webserver" {
-    count = 1
+    count = 2
     restart {
       attempts = 2
       interval = "30m"
