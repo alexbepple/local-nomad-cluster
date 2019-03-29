@@ -7,7 +7,10 @@ job "fabio" {
       driver = "docker"
       config {
         image = "fabiolb/fabio"
-        network_mode = "host"
+      }
+      env {
+        registry_consul_addr = "${attr.unique.network.ip-address}:8500"
+        registry_consul_register_addr = "${attr.unique.network.ip-address}:9998"
       }
 
       resources {
